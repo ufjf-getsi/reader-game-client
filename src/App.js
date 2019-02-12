@@ -1,4 +1,4 @@
-import React, { Component, Container, Row, Col } from 'react';
+import React, { Component} from 'react';
 import NavBar from './components/NavBar'
 import ImageGraph from './components/ImageGraph'
 import QuestionButtons from './components/QuestionButtons'
@@ -14,8 +14,6 @@ class App extends Component {
           <QuestionButtons/>
           <MicButton/>
       </div>
-
-
     );
   }
 }
