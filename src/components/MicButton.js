@@ -39,9 +39,9 @@ export class MicButton extends React.Component {
           onStop={this.onStop}
           onData={this.onData}
           strokeColor="#000000"
-          backgroundColor="#FF4081" />
-        <button onTouchTap={this.startRecording} type="button">Start</button>
-        <button onTouchTap={this.stopRecording} type="button">Stop</button>
+          backgroundColor="#83A3E2" />
+        <button onTouchTap={this.startRecording} type="button">Gravar</button>
+        <button onTouchTap={this.stopRecording} type="button">Parar</button>
       </div>
     );
   }
