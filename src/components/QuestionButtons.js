@@ -1,78 +1,46 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-var texto1 = "Questao 1"
-var texto2 = "Questao 2"
-var texto3 = "Questao 3"
-var texto4 = "Questao 4"
 const styles = theme => ({
-    margin: {
-        margin: theme.spacing.unit,
-        width: 290
-    },
-    extendedIcon: {
-        marginRight: theme.spacing.unit
-    }
+  margin: {
+    margin: theme.spacing.unit,
+    width: 290
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit
+  }
 });
 
-function ButtonSizes(props) {
-    const { classes } = props;
-    return (
-        <div>
-            <div>
-                <Button
-                    id="questao1"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    className={classes.margin}
-                >
-                    {texto1}
-                </Button>
-            </div>
-            <div>
-                <Button
-                    id="questao2"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    className={classes.margin}
-                >
-                    {texto2}
-                </Button>
-            </div>
-            <div>
-                <Button
-                    id="questao3"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    className={classes.margin}
-                >
-                    {texto3}
-                </Button>
-            </div>
-            <div>
-                <Button
-                    id="questao4"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    className={classes.margin}
-
-                >
-                    {texto4}                   
-                </Button>
-
-            </div>
+class ButtonSizes extends Component {
+  //const { classes } = props;
+  render() {
+    let wordDivs = [];
+    wordDivs = this.props.words.list.map((word, k) => {
+      return (
+        <div key={"word" + k}>
+          <Button
+            id={"word" + k}
+            variant="contained"
+            size="large"
+            color="primary"
+            //           className={classes.margin}
+            onMouseDown={()=>{this.props.onStartRecording(word)}}
+            onMouseUp={()=>{this.props.onStopRecording(word)}}
+          >
+            {word}
+          </Button>
         </div>
-    );
+      );
+    });
+
+    return <div id="wordOptions">{wordDivs}</div>;
+  }
 }
 
 ButtonSizes.propTypes = {
-    classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ButtonSizes);

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ReactMic } from 'react-mic';
+import QuestionButtons from './QuestionButtons';
  
-export class MicButton extends React.Component {
+export class MicButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,15 +11,25 @@ export class MicButton extends React.Component {
  
   }
  
-  startRecording = () => {
+  startRecording = (word) => {
+    console.log("START "+word);
+    
     this.setState({
-      record: true
+      record: true,
+      lastWord: word,
+      lastBlob: null
     });
   }
- 
-  stopRecording = () => {
+  
+  stopRecording = (word) => {
+    console.log("STOP "+word);
     this.setState({
-      record: false
+      record: false,
+      lastWord: this.state.lastWord
+    });
+    this.props.addTry({
+      blob: this.state.lastBlob,
+      word: this.state.lastWord
     });
   }
  
@@ -28,6 +39,10 @@ export class MicButton extends React.Component {
  
   onStop(recordedBlob) {
     console.log('recordedBlob is: ', recordedBlob);
+    const newState = { record: this.state.record, lastWord: this.state.lastWord, lastBlob: recordedBlob };
+    this.setState(newState);
+    console.log(newState);
+    
   }
  
   render() {
@@ -36,12 +51,11 @@ export class MicButton extends React.Component {
         <ReactMic
           record={this.state.record}
           className="sound-wave"
-          onStop={this.onStop}
+          onStop={this.onStop.bind(this)}
           onData={this.onData}
           strokeColor="#000000"
           backgroundColor="#FF4081" />
-        <button onTouchTap={this.startRecording} type="button">Start</button>
-        <button onTouchTap={this.stopRecording} type="button">Stop</button>
+        <QuestionButtons words={this.props.words} onStartRecording={this.startRecording} onStopRecording={this.stopRecording}/>
       </div>
     );
   }
