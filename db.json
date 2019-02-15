@@ -1,7 +1,6 @@
 {
   "audioData": [
     {
-      "id": 1,
       "blob": {
         "size": 1,
         "type": "BlobType"
@@ -13,7 +12,8 @@
       },
       "startTime": 1,
       "stopTime": 1,
-      "word": "word"
+      "word": "word",
+      "id": 1
     }
   ]
 }

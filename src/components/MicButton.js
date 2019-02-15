@@ -34,11 +34,14 @@ export class MicButton extends Component {
     });
   }
 
-
-
-  audioData = (blob, word) => {
-    const newData = {
-      blob: blob.blob,
+  saveData(newState) {
+    var blob = newState.lastBlob
+    var word = newState.word
+    const data = {
+      blob: {
+        size: blob.size,
+        type: blob.type
+      },
       blobURL: blob.blobURL,
       options: {
         audioBitsPerSecond: blob.options.audioBitsPerSecond,
@@ -48,15 +51,8 @@ export class MicButton extends Component {
       stopTime: blob.stopTime,
       word: word
     }
-    this.props.audioData(newData);
-  }
-
-
-  saveData() {
-    const data = this.props.audioData
-    console.log(data)
     axios.post('http://localhost:3002/audioData', data).then(response => {
-      console.log("Adicionado no DB");
+      console.log("Dados Adicionados no DB");
     });
   }
 
@@ -69,7 +65,7 @@ export class MicButton extends Component {
     const newState = { record: this.state.record, lastWord: this.state.lastWord, lastBlob: recordedBlob };
     this.setState(newState);
     console.log(newState);
-    this.saveData();
+    this.saveData(newState);
   }
 
   render() {
