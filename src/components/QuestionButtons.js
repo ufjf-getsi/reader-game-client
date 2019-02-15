@@ -14,7 +14,6 @@ const styles = theme => ({
 });
 
 class ButtonSizes extends Component {
-  //const { classes } = props;
   render() {
     let wordDivs = [];
     wordDivs = this.props.words.list.map((word, k) => {
@@ -25,7 +24,6 @@ class ButtonSizes extends Component {
             variant="contained"
             size="large"
             color="primary"
-            //           className={classes.margin}
             onMouseDown={()=>{this.props.onStartRecording(word)}}
             onMouseUp={()=>{this.props.onStopRecording(word)}}
           >
