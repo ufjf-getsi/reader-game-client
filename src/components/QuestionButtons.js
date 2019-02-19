@@ -1,29 +1,30 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
 
 const styles = theme => ({
-  margin: {
+  root: {
     margin: theme.spacing.unit,
-    width: 250
+    width: 300
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
-  }
+  },
 });
 
-class ButtonSizes extends Component {
+class QuestionButtons extends Component {
   render() {
     let wordDivs = [];
     wordDivs = this.props.words.list.map((word, k) => {
       return (
-        <div key={"word" + k}>
-          <Button
+        <div key={"word" + k} className={this.props.classes.root}>
+          <Button        
             id={"word" + k}
             variant="contained"
             size="large"
-            color="primary"
+            color="primary"            
             onMouseDown={()=>{this.props.onStartRecording(word)}}
             onMouseUp={()=>{this.props.onStopRecording(word)}}
           >
@@ -37,8 +38,8 @@ class ButtonSizes extends Component {
   }
 }
 
-ButtonSizes.propTypes = {
-  classes: PropTypes.object.isRequired
+QuestionButtons.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonSizes);
+export default withStyles(styles)(QuestionButtons);

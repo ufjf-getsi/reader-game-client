@@ -75,6 +75,7 @@ export class MicButton extends Component {
         <ReactMic
           record={this.state.record}
           className="sound-wave"
+          width="300"
           onStop={this.onStop.bind(this)}
           onData={this.onData}
           strokeColor="#000000"
