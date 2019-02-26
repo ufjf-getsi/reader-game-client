@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 
 const styles = theme => ({
-  root: {
+  buttonSize: {
     margin: theme.spacing.unit,
-    width: 300
+    width: 290
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
@@ -18,9 +18,11 @@ class QuestionButtons extends Component {
   render() {
     let wordDivs = [];
     wordDivs = this.props.words.list.map((word, k) => {
+      const {classes} = this.props
       return (
-        <div key={"word" + k} className={this.props.classes.root}>
+        <div key={"word" + k} >
           <Button        
+            className={classes.buttonSize}
             id={"word" + k}
             variant="contained"
             size="large"
