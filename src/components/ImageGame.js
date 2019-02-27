@@ -1,11 +1,11 @@
 import React from 'react';
-import imagemGrafo from '../imagemGrafo.jpg'
+import imagemGame from '../imagemGame.jpg'
 
 const ImageGraph = () =>{
     return(
         <div className="row">
         <div className="logo">
-          <img src={imagemGrafo} width="300" height="250" alt="Imagem Grafo" />
+          <img src={imagemGame} width="300" height="250" alt="Imagem GAme" />
         </div>
       </div>
     )
