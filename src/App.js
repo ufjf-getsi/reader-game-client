@@ -7,18 +7,15 @@ import Error from './components/Error'
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path ='/' component={EntryScreen} exact/>
-          <Route exact path='/jogar/' component={PlayScreen}/>
-          <Route exact path='/criar/' component={CriarSala}/>
-          <Route component={Error}/>
+          <Route exact path='/' component={EntryScreen} exact />
+          <Route exact path='/jogar/' component={PlayScreen} />
+          <Route exact path='/criar/' component={CriarSala} />
+          <Route component={Error} />
         </Switch>
       </BrowserRouter>
     );

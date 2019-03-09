@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react'
-import {Grid, Paper, Typography} from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
+import JogadoresList from './JogadoresList';
+import { jogadores } from './Store.js'
+
 
 const styles = theme => ({
     buttonSize: {
@@ -32,6 +33,8 @@ const styles = theme => ({
 
 class CriarSala extends Component {
     state = {
+        jogadores,
+        jogador: {},
         open: false
     }
 
@@ -47,22 +50,15 @@ class CriarSala extends Component {
     }
 
     render() {
-        const { open } = this.state
+
+        const { open, jogador } = this.state
         const { classes } = this.props
         return (
             <Fragment>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>
-                    <Fragment>
-                            <Typography
-                                variant="headline"
-                                style={{ textTransform: "capitalize" }}
-                            >
-                                Jogadores
-                            </Typography>
-                        </Fragment>
-                    </Paper>
-                </Grid>
+                <JogadoresList
+                    jogadores={jogadores}
+                    jogador={jogador}
+                />
                 <Button
                     className={classes.buttonSize}
                     variant="contained"

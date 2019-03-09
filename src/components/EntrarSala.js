@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import NavBar from "./NavBar"
-import ImageGame from "./ImageGame";
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';

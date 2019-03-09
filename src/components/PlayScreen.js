@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NavBar from "./NavBar"
 import ImageGraph from "./ImageGraph";
 import MicButton from "./MicButton";
-import EntryScreen from "./EntryScreen";
 
 const DADOS = {
   room: "abc001",

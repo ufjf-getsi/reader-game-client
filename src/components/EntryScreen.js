@@ -2,12 +2,10 @@ import React, { Component, Fragment } from 'react'
 import NavBar from "./NavBar"
 import ImageGame from "./ImageGame";
 import EntrarSala from './EntrarSala'
-import CriarSala from './CriarSala'
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
-import CreateDialog from './EntrarSala'
-import BrowserHistory from 'react-router-dom'
+
 
 
 const styles = theme => ({
@@ -22,16 +20,13 @@ const styles = theme => ({
 
 
 class EntryScreen extends Component {
-    constructor(props) {
-        super(props);
+
+    handleCriarTela = () => {
+        this.props.history.push('/criar')
     }
 
-handleCriarTela =() =>{
-    this.props.history.push('/criar')
-}
-
     render() {
-        const {classes} = this.props
+        const { classes } = this.props
         return (
             <Fragment>
                 <NavBar />
@@ -43,7 +38,7 @@ handleCriarTela =() =>{
                     onClick={this.handleCriarTela}>
                     Criar Sala
                 </Button>
-                <br/>
+                <br />
                 <EntrarSala />
 
             </Fragment>
