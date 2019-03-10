@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
+import { jogadores } from './BDJogadores'
+
 
 const styles = theme => ({
     buttonSize: {
@@ -17,26 +18,50 @@ const styles = theme => ({
     extendedIcon: {
         marginRight: theme.spacing.unit,
     },
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+        overflowY: "auto"
+    }
 });
 
-class EntrarSalaDialog extends Component {
+class CriarSalaDialog extends Component {
     state = {
+        jogadores,
+        jogador: {
+            nome: ""
+        },
         open: false
     }
 
-    handleEntrarSala = () => {
+    handleChange = nome => ({ target: { value } }) => {
+        this.setState({
+            jogador: {
+                ...this.state.jogador,
+                [nome]: value
+            }
+        });
+    };
+
+    handleCriarSala = () => {
         this.setState({
             open: !this.state.open
         })
     };
 
-    //handleSubmit = () =>{
-    //    
-    //}
+    handleSubmit = () => {
+
+    }
 
     render() {
-        const { open } = this.state
-        const {classes} = this.props
+
+        const {open,
+            jogador: { nome } } = this.state
+        const { classes } = this.props
         return (
             <Fragment>
                 <Button
@@ -44,30 +69,30 @@ class EntrarSalaDialog extends Component {
                     variant="contained"
                     size="large"
                     color="primary"
-                    onClick={this.handleEntrarSala}
+                    onClick={this.handleCriarSala}
                 >
-                    Entrar
+                    Adicionar jogador
                 </Button>
-                <Dialog open={open} onClose={this.handleEntrarSala}>
+                <Dialog open={open} onClose={this.handleCriarSala}>
                     <DialogTitle id="form-dialog-title">
-                        Entrar em uma sala
+                        Digite o nome do jogador
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText>
-                            Digite o Código da Sala
-                        </DialogContentText>
-
                         <TextField
                             autoFocus
-                            id="codigo"
-                            label="Código"
+                            label="Nome"
+                            onChange={this.handleChange("nome")}
+                            value={nome}
                             fullWidth
                             type="string"
                         />
                     </DialogContent>
                     <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Cancel
+                        </Button>
                         <Button onClick={this.handleSubmit} color="primary">
-                            Entrar
+                            Criar
                         </Button>
                     </DialogActions>
                 </Dialog>
@@ -76,8 +101,8 @@ class EntrarSalaDialog extends Component {
     }
 }
 
-EntrarSalaDialog.propTypes = {
+CriarSalaDialog.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(EntrarSalaDialog);
+export default withStyles(styles)(CriarSalaDialog);

@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import NavBar from "./NaoUsados/NavBar"
 import ImageGame from "./Images/ImageGame";
-import EntrarSala from './EntrarSalaDialog'
+import EntrarSalaDialog from './EntrarSalaDialog'
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
-
 
 const styles = theme => ({
     buttonSize: {
@@ -17,7 +15,6 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
     },
 });
-
 
 class TelaInicial extends Component {
     render() {
@@ -37,17 +34,15 @@ class TelaInicial extends Component {
                 </Link>
 
                 <br />
-                <EntrarSala />
+                <EntrarSalaDialog />
 
             </Fragment>
         );
     }
 }
 
-
 TelaInicial.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 export default withStyles(styles)(TelaInicial);

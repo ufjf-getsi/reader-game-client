@@ -11,12 +11,14 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <div>
         <Switch>
-          <Route exact path='/' component={TelaInicial} exact />
+          <Route exact path='/' component={TelaInicial} />
           <Route exact path='/jogar/' component={TelaJogar} />
           <Route exact path='/criar/' component={CriarSala} />
           <Route component={Error} />
         </Switch>
+        </div>
       </BrowserRouter>
     );
   }

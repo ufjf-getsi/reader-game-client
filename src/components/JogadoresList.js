@@ -23,7 +23,7 @@ export default ({
     }
 }) => (
         <Grid container>
-            <Grid item xs={3}>
+            <Grid item xs={5}>
                 <Paper style={styles.Paper}>
                     <Fragment>
                         <Typography
@@ -35,7 +35,7 @@ export default ({
                             </Typography>
                         <List component="ul">
                             {jogadores.map(({ nome }) => (
-                                <ListItemText primary={nome} />
+                                <ListItemText primary={nome} key={nome} />
                             ))}
 
                         </List>

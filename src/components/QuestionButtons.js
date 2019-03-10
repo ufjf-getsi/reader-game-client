@@ -3,7 +3,6 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-
 const styles = theme => ({
   buttonSize: {
     margin: theme.spacing.unit,

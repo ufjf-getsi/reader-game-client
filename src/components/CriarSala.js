@@ -1,15 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles';
-import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { TextField } from '@material-ui/core';
 import JogadoresList from './JogadoresList';
 import { jogadores } from './BDJogadores'
-
+import CriarSalaDialog from './CriarSalaDialog';
 
 
 const styles = theme => ({
@@ -31,7 +25,6 @@ const styles = theme => ({
     }
 });
 
-
 class CriarSala extends Component {
     state = {
         jogadores,
@@ -41,7 +34,7 @@ class CriarSala extends Component {
         open: false
     }
 
-    handleJogadorCreate = jogador =>{
+    handleJogadorCreate = jogador => {
         this.setState(({ jogadores }) => ({
             jogadores: [...jogadores, jogador]
         }))
@@ -67,7 +60,6 @@ class CriarSala extends Component {
         const { jogador } = this.state;
         console.log(jogador.nome)
 
-
         /*
         this.handleJogadorCreate({
             ...jogador,
@@ -89,47 +81,16 @@ class CriarSala extends Component {
 
     render() {
 
-        const { jogador, open,
-            jogador: { nome } } = this.state
-        const { classes } = this.props
+        const { jogador} = this.state
+ 
+
         return (
             <Fragment>
                 <JogadoresList
                     jogadores={jogadores}
                     jogador={jogador}
                 />
-                <Button
-                    className={classes.buttonSize}
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    onClick={this.handleCriarSala}
-                >
-                    Adicionar jogador
-                </Button>
-                <Dialog open={open} onClose={this.handleCriarSala}>
-                    <DialogTitle id="form-dialog-title">
-                        Digite o nome do jogador
-                    </DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            autoFocus
-                            label="Nome"
-                            onChange={this.handleChange("nome")}
-                            value={nome}
-                            fullWidth
-                            type="string"
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
-                        </Button>
-                        <Button onClick={this.handleSubmit} color="primary">
-                            Criar
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                <CriarSalaDialog/>
             </Fragment>
         );
     }
@@ -138,6 +99,5 @@ class CriarSala extends Component {
 CriarSala.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 export default withStyles(styles)(CriarSala);
