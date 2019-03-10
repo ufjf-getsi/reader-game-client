@@ -34,10 +34,20 @@ const styles = theme => ({
 class CriarSala extends Component {
     state = {
         jogadores,
-        jogador: {},
+        jogador: {
+            nome: ""
+        },
         open: false
     }
 
+    handleChange = nome => ({ target: { value } }) => {
+        this.setState({
+            jogador: {
+                ...this.state.jogador,
+                [nome]: value
+            }
+        });
+    };
 
     handleCriarSala = () => {
         this.setState({
@@ -45,13 +55,35 @@ class CriarSala extends Component {
         })
     };
 
-    handleSubmit = () => {
+    handleJogadorCreate = jogador =>
+        this.setState(({ jogadores }) => ({
+            jogadores: [...jogadores, jogador]
+        }));
 
+    handleSubmit = () => {
+        const { jogador } = this.state;
+        console.log(jogador.nome)
+        this.handleJogadorCreate({
+            ...jogador,
+            id: jogador.nome.toLowerCase()
+            //id: jogador.nome.toLocaleLowerCase().replace(/ /g, "-"),
+        })
+        console.log(jogador.nome)
+        console.log(jogadores)
+        this.setState({
+            open: false,
+            jogador: {
+                id: "",
+                nome: ""
+            }
+        });
+        console.log(jogador)
     }
 
     render() {
 
-        const { open, jogador } = this.state
+        const { jogador, open,
+            jogador: { nome } } = this.state
         const { classes } = this.props
         return (
             <Fragment>
@@ -75,8 +107,9 @@ class CriarSala extends Component {
                     <DialogContent>
                         <TextField
                             autoFocus
-                            id="codigo"
                             label="Nome"
+                            onChange={this.handleChange("nome")}
+                            value={nome}
                             fullWidth
                             type="string"
                         />
@@ -85,7 +118,7 @@ class CriarSala extends Component {
                         <Button onClick={this.handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleSubmit} color="primary">
                             Criar
                         </Button>
                     </DialogActions>
