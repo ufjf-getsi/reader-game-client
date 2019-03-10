@@ -8,7 +8,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
 import JogadoresList from './JogadoresList';
-import { jogadores } from './Store.js'
+import { jogadores } from './BDJogadores'
+
 
 
 const styles = theme => ({
@@ -40,6 +41,12 @@ class CriarSala extends Component {
         open: false
     }
 
+    handleJogadorCreate = jogador =>{
+        this.setState(({ jogadores }) => ({
+            jogadores: [...jogadores, jogador]
+        }))
+    }
+
     handleChange = nome => ({ target: { value } }) => {
         this.setState({
             jogador: {
@@ -55,19 +62,19 @@ class CriarSala extends Component {
         })
     };
 
-    handleJogadorCreate = jogador =>
-        this.setState(({ jogadores }) => ({
-            jogadores: [...jogadores, jogador]
-        }));
 
     handleSubmit = () => {
         const { jogador } = this.state;
         console.log(jogador.nome)
+
+
+        /*
         this.handleJogadorCreate({
             ...jogador,
             id: jogador.nome.toLowerCase()
             //id: jogador.nome.toLocaleLowerCase().replace(/ /g, "-"),
         })
+        */
         console.log(jogador.nome)
         console.log(jogadores)
         this.setState({

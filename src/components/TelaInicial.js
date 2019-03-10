@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import NavBar from "./NavBar"
-import ImageGame from "./ImageGame";
-import EntrarSala from './EntrarSala'
+import NavBar from "./NaoUsados/NavBar"
+import ImageGame from "./Images/ImageGame";
+import EntrarSala from './EntrarSalaDialog'
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom'
 
 
 const styles = theme => ({
@@ -19,25 +19,23 @@ const styles = theme => ({
 });
 
 
-class EntryScreen extends Component {
-
-    handleCriarTela = () => {
-        this.props.history.push('/criar')
-    }
-
+class TelaInicial extends Component {
     render() {
         const { classes } = this.props
         return (
             <Fragment>
-                <NavBar />
                 <ImageGame />
-                <Button variant="contained"
-                    size="large"
-                    color="primary"
-                    className={classes.buttonSize}
-                    onClick={this.handleCriarTela}>
-                    Criar Sala
-                </Button>
+                <Link to={{
+                    pathname: '/criar'
+                }}>
+                    <Button variant="contained"
+                        size="large"
+                        color="primary"
+                        className={classes.buttonSize}>
+                        Criar Sala
+                        </Button>
+                </Link>
+
                 <br />
                 <EntrarSala />
 
@@ -46,9 +44,10 @@ class EntryScreen extends Component {
     }
 }
 
-EntryScreen.propTypes = {
+
+TelaInicial.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(EntryScreen);
+export default withStyles(styles)(TelaInicial);

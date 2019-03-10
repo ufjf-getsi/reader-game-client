@@ -32,9 +32,9 @@ class EntrarSala extends Component {
         })
     };
 
-    handleSubmit = () =>{
-        
-    }
+    //handleSubmit = () =>{
+    //    
+    //}
 
     render() {
         const { open } = this.state

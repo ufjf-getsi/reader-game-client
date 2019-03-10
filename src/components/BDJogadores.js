@@ -8,7 +8,7 @@ export const jogadores = [
         nome: "Julia"
     },
     {
-        id: 2,
+        id: 3,
         nome: "Jerson"
     }
 ]

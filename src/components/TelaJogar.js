@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import NavBar from "./NavBar"
-import ImageGraph from "./ImageGraph";
+import NavBar from "./NaoUsados/NavBar"
+import ImageGraph from "./Images/ImageGraph"
 import MicButton from "./MicButton";
 
 const DADOS = {
