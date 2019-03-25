@@ -59,14 +59,7 @@ class CriarSala extends Component {
     handleSubmit = () => {
         const { jogador } = this.state;
         console.log(jogador.nome)
-
-        /*
-        this.handleJogadorCreate({
-            ...jogador,
-            id: jogador.nome.toLowerCase()
-            //id: jogador.nome.toLocaleLowerCase().replace(/ /g, "-"),
-        })
-        */
+        
         console.log(jogador.nome)
         console.log(jogadores)
         this.setState({
@@ -90,7 +83,7 @@ class CriarSala extends Component {
                     jogadores={jogadores}
                     jogador={jogador}
                 />
-                <CriarSalaDialog/>
+                <CriarSalaDialog onJogadorCreate={this.handleJogadorCreate}/>
             </Fragment>
         );
     }

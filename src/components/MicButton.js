@@ -66,7 +66,7 @@ export class MicButton extends Component {
     this.setState(newState);
     console.log(newState);
     this.saveData(newState);
-    this.props.geraWord();
+    //this.props.geraWord();
   }
 
   render() {

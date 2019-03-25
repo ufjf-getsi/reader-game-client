@@ -54,7 +54,18 @@ class CriarSalaDialog extends Component {
     };
 
     handleSubmit = () => {
-
+        const{jogador} = this.state;
+        
+        this.props.onJogadorCreate({
+            ...jogador,
+            id: jogador.nome.toLocaleLowerCase().replace(/ /g, "-")
+        })
+        this.setState({
+            open: false,
+            jogador:{
+                nome: ""
+            }
+        })
     }
 
     render() {
