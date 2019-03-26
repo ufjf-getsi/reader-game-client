@@ -23,7 +23,7 @@ export default ({
     }
 }) => (
         <Grid container>
-            <Grid item xs={5}>
+            <Grid item xs={3}>
                 <Paper style={styles.Paper}>
                     <Fragment>
                         <Typography

@@ -84,6 +84,16 @@ class CriarSalaDialog extends Component {
                 >
                     Adicionar jogador
                 </Button>
+                <br/>
+                <Button
+                    className={classes.buttonSize}
+                    variant="contained"
+                    size="large"
+                    color="primary"
+                    
+                >
+                    Criar
+                </Button>
                 <Dialog open={open} onClose={this.handleCriarSala}>
                     <DialogTitle id="form-dialog-title">
                         Digite o nome do jogador
