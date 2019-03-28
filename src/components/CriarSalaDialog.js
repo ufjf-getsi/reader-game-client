@@ -38,6 +38,12 @@ class CriarSalaDialog extends Component {
         open: false
     }
 
+    handleClose= ()=>{
+        this.setState({
+            open: !this.state.open
+        })
+    }
+
     handleChange = nome => ({ target: { value } }) => {
         this.setState({
             jogador: {
@@ -110,7 +116,7 @@ class CriarSalaDialog extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
-                            Cancel
+                            Cancelar
                         </Button>
                         <Button onClick={this.handleSubmit} color="primary">
                             Criar
