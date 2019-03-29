@@ -27,7 +27,10 @@ class QuestionButtons extends Component {
             size="large"
             color="primary"            
             onMouseDown={()=>{this.props.onStartRecording(word)}}
+            onTouchStart={()=>{this.props.onStartRecording(word)}}
             onMouseUp={()=>{this.props.onStopRecording(word)}}
+            onMouseLeave={()=>{this.props.onStopRecording(word)}}
+            onTouchEnd={()=>{this.props.onStopRecording(word)}}
           >
             {word}
           </Button>
