@@ -8,6 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
 import { jogadores } from './BDJogadores'
+import { Link } from 'react-router-dom'
 
 
 const styles = theme => ({
@@ -38,7 +39,7 @@ class CriarSalaDialog extends Component {
         open: false
     }
 
-    handleClose= ()=>{
+    handleClose = () => {
         this.setState({
             open: !this.state.open
         })
@@ -60,15 +61,15 @@ class CriarSalaDialog extends Component {
     };
 
     handleSubmit = () => {
-        const{jogador} = this.state;
-        
+        const { jogador } = this.state;
+
         this.props.onJogadorCreate({
             ...jogador,
             id: jogador.nome.toLocaleLowerCase().replace(/ /g, "-")
         })
         this.setState({
             open: false,
-            jogador:{
+            jogador: {
                 nome: ""
             }
         })
@@ -76,7 +77,7 @@ class CriarSalaDialog extends Component {
 
     render() {
 
-        const {open,
+        const { open,
             jogador: { nome } } = this.state
         const { classes } = this.props
         return (
@@ -90,16 +91,20 @@ class CriarSalaDialog extends Component {
                 >
                     Adicionar jogador
                 </Button>
-                <br/>
-                <Button
-                    className={classes.buttonSize}
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    
-                >
-                    Criar
+                <br />
+                <Link to={{
+                    pathname: '/jogar'
+                }} jogadores={jogadores}>
+                    <Button
+                        className={classes.buttonSize}
+                        variant="contained"
+                        size="large"
+                        color="primary"
+
+                    >
+                        Criar
                 </Button>
+                </Link>
                 <Dialog open={open} onClose={this.handleCriarSala}>
                     <DialogTitle id="form-dialog-title">
                         Digite o nome do jogador

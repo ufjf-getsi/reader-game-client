@@ -83,7 +83,10 @@ class CriarSala extends Component {
                     jogadores={jogadores}
                     jogador={jogador}
                 />
-                <CriarSalaDialog onJogadorCreate={this.handleJogadorCreate}/>
+                <CriarSalaDialog
+                 onJogadorCreate={this.handleJogadorCreate}
+                 jogadores={jogadores}
+                 />
             </Fragment>
         );
     }
