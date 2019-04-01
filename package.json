@@ -2,6 +2,7 @@
   "name": "getsiprojtela",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ufjf-getsi.github.io/reader-game-client/",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
@@ -17,6 +18,8 @@
     "styled-components": "^4.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "json:server": "json-server --port 3002 --watch db.json",
     "start": "react-scripts start",
     "build": "react-scripts build",

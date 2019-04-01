@@ -10,12 +10,12 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={'/reader-game-client'}>
       <div>
         <Switch>
-          <Route exact path='/' component={TelaInicial} />
-          <Route exact path='/jogar/' component={TelaJogar} />
-          <Route exact path='/criar/' component={CriarSala} />
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={TelaInicial} />
+          <Route exact path={`${process.env.PUBLIC_URL}/jogar`} component={TelaJogar} />
+          <Route exact path={`${process.env.PUBLIC_URL}/criar`} component={CriarSala} />
           <Route component={Error} />
         </Switch>
         </div>
