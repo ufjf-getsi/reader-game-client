@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/reader-game-client/static/js/runtime~main.e911a94c.js"
   },
   {
-    "revision": "54d7a378e8a0a9ad2fc2",
-    "url": "/reader-game-client/static/js/main.54d7a378.chunk.js"
+    "revision": "19988049047968e8ab3c",
+    "url": "/reader-game-client/static/js/main.19988049.chunk.js"
   },
   {
     "revision": "ce162a2adc7a172f0292",
     "url": "/reader-game-client/static/js/2.ce162a2a.chunk.js"
   },
   {
-    "revision": "54d7a378e8a0a9ad2fc2",
+    "revision": "19988049047968e8ab3c",
     "url": "/reader-game-client/static/css/main.a7ecb015.chunk.css"
   },
   {
-    "revision": "da36c0fb0f04b72a94314373e37879ba",
+    "revision": "06d9ff191ecb39a6bd2dd27633246326",
     "url": "/reader-game-client/index.html"
   }
 ];
