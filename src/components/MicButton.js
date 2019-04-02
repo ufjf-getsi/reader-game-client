@@ -64,11 +64,6 @@ export class MicButton extends Component {
     });
   }
 
-  onData(recordedBlob) {
-    // Não relevante.
-    //console.log('chunk of real-time data is: ', recordedBlob);
-  }
-
   onStop(recordedBlob) {
     const newState = { record: this.state.record, lastWord: this.state.lastWord, lastBlob: recordedBlob};
     this.setState(newState);

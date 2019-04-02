@@ -1,4 +1,4 @@
-const fakeData= {
+export const fakeData= {
     "sala":[
         {
             "id": 1,
@@ -14,4 +14,3 @@ const fakeData= {
         }
       ],
 }
-export default fakeData;

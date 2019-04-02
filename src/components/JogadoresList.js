@@ -3,8 +3,6 @@ import { Grid, Paper, Typography } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItemText from "@material-ui/core/ListItemText";
 
-
-
 const styles = {
     Paper: {
         padding: 20,

@@ -30,10 +30,6 @@ class EntrarSalaDialog extends Component {
         })
     };
 
-    //handleSubmit = () =>{
-    //    
-    //}
-
     render() {
         const { open } = this.state
         const {classes} = this.props
