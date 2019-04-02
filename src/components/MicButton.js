@@ -88,7 +88,6 @@ export class MicButton extends Component {
       .then((response, error) => {
         console.log("PLOG E: ", response, error);
       });
-    //this.props.geraWord();
   }
 
   render() {
