@@ -1,14 +1,14 @@
 {
-  "main.css": "/reader-game-client/static/css/main.a7ecb015.chunk.css",
-  "main.js": "/reader-game-client/static/js/main.19988049.chunk.js",
-  "main.js.map": "/reader-game-client/static/js/main.19988049.chunk.js.map",
-  "runtime~main.js": "/reader-game-client/static/js/runtime~main.e911a94c.js",
-  "runtime~main.js.map": "/reader-game-client/static/js/runtime~main.e911a94c.js.map",
-  "static/js/2.ce162a2a.chunk.js": "/reader-game-client/static/js/2.ce162a2a.chunk.js",
-  "static/js/2.ce162a2a.chunk.js.map": "/reader-game-client/static/js/2.ce162a2a.chunk.js.map",
-  "index.html": "/reader-game-client/index.html",
-  "precache-manifest.aa29e949f7ac5e3b960777e9fd1742bb.js": "/reader-game-client/precache-manifest.aa29e949f7ac5e3b960777e9fd1742bb.js",
-  "service-worker.js": "/reader-game-client/service-worker.js",
-  "static/css/main.a7ecb015.chunk.css.map": "/reader-game-client/static/css/main.a7ecb015.chunk.css.map",
-  "static/media/imagemGame.jpg": "/reader-game-client/static/media/imagemGame.5f3018cc.jpg"
+  "main.css": "/static/css/main.a7ecb015.chunk.css",
+  "main.js": "/static/js/main.6ce89f36.chunk.js",
+  "main.js.map": "/static/js/main.6ce89f36.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.fdfcfda2.js",
+  "runtime~main.js.map": "/static/js/runtime~main.fdfcfda2.js.map",
+  "static/js/2.ce162a2a.chunk.js": "/static/js/2.ce162a2a.chunk.js",
+  "static/js/2.ce162a2a.chunk.js.map": "/static/js/2.ce162a2a.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.9768253de0632e6fbaec57d9e262b0a7.js": "/precache-manifest.9768253de0632e6fbaec57d9e262b0a7.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.a7ecb015.chunk.css.map": "/static/css/main.a7ecb015.chunk.css.map",
+  "static/media/imagemGame.jpg": "/static/media/imagemGame.5f3018cc.jpg"
 }
