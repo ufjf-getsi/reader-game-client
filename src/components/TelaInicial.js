@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import ImageGame from "./Images/ImageGame";
+import ImageGame from "./images/ImageGame";
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
@@ -43,12 +43,9 @@ class TelaInicial extends Component {
         const { classes } = this.props
         return (
             <div className={classes.root}>
-                <Typography variant="h6" color="inherit">
-                    Reader Game Client
-          </Typography>
-                <Fragment>
                     <ImageGame />
-
+                <Fragment
+                >
                     <TextField
                         required
                         id="standard-required"

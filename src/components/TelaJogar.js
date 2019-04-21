@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ImageGraph from "./Images/ImageGraph"
+import ImageGraph from "./images/ImageGraph"
 import MicButton from "./MicButton";
 import Typography from "@material-ui/core/Typography";
 
