@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reader Game Client",
+  "name": "Reader Game Client",
   "icons": [
     {
       "src": "favicon.ico",
