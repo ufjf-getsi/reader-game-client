@@ -21,13 +21,15 @@ const styles = theme => ({
 
 class EntrarSalaDialog extends Component {
     state = {
-        open: false
+        open: false,
+        sala: null
     }
 
-    handleEntrarSala = () => {
-        this.setState({
+    handleEntrarSalaClick = () => {
+        this.setState({...this.state,
             open: !this.state.open
         })
+        this.props.history.push("/jogar");
     };
 
     render() {
@@ -44,7 +46,7 @@ class EntrarSalaDialog extends Component {
                 >
                     Entrar
                 </Button>
-                <Dialog open={open} onClose={this.handleEntrarSala}>
+                <Dialog open={open} >
                     <DialogTitle id="form-dialog-title">
                         Entrar em uma sala
                     </DialogTitle>
@@ -62,7 +64,7 @@ class EntrarSalaDialog extends Component {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleSubmit} color="primary">
+                        <Button onClick={this.handleEntrarSalaClick.bind(this)} color="primary">
                             Entrar
                         </Button>
                     </DialogActions>

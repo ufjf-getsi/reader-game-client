@@ -14,7 +14,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path={`${process.env.PUBLIC_URL}/`} component={TelaInicial} />
-          <Route exact path={`${process.env.PUBLIC_URL}/jogar`} component={TelaJogar} />
+          <Route exact path={`${process.env.PUBLIC_URL}/jogar/:id`} component={TelaJogar} />
           <Route exact path={`${process.env.PUBLIC_URL}/criar`} component={CriarSala} />
           <Route component={Error} />
         </Switch>
