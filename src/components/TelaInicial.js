@@ -66,6 +66,7 @@ class TelaInicial extends Component {
                         size="large"
                         color="primary"
                         onClick={this.handleEntrarSala.bind(this)}
+                        disabled={(this.state.sala.length>5)?false:true}
                     >Entrar</Button>
                     <Button variant="contained"
                         size="large"
