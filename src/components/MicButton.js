@@ -73,9 +73,7 @@ export class MicButton extends Component {
 
     instance
       .post(
-        "https://glacial-temple-80235.herokuapp.com/audio",
-        //"https://172.18.41.228:8181/reader-game-server/audio",
-        //"http://localhost:8080/reader-game-server/audio",
+        process.env.REACT_APP_GAME_SERVER_BASE_URL + process.env.REACT_APP_GAME_SERVER_AUDIO_UPLOAD_URL,
         recordedBlob.blob,
         { headers: { "content-type": "multipart/form-data" },
           httpsAgent: agent }

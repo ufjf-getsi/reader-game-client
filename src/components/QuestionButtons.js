@@ -16,9 +16,11 @@ const styles = theme => ({
 class QuestionButtons extends Component {
   render() {
     let wordDivs = [];
-    wordDivs = this.props.words.list.map((word, k) => {
-      const {classes} = this.props
-      return (
+    wordDivs = [];
+    const {classes} = this.props;
+    for(const word in this.props.words) {
+      const k = this.props.words[word];
+      wordDivs.push (
         <div key={"word" + k} >
           <Button        
             className={classes.buttonSize}
@@ -32,11 +34,11 @@ class QuestionButtons extends Component {
             onMouseLeave={()=>{this.props.onStopRecording(word)}}
             onTouchEnd={()=>{this.props.onStopRecording(word)}}
           >
-            {word}
+            {word} : {k}
           </Button>
         </div>
       );
-    });
+    };
 
     return <div id="wordOptions">{wordDivs}</div>;
   }
