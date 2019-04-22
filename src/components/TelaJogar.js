@@ -9,7 +9,8 @@ const DADOS = {
   room: "abc001",
   player: "Player 1",
   words: { list: ["Palitó", "Pálido", "Palito", "Palíndromo"] },
-  tries: []
+  tries: [],
+  nodes:"[]"
 };
 
 
@@ -57,7 +58,7 @@ class PlayScreen extends Component {
         <Typography variant="h6" color="inherit">
           [Player {this.state.currentPlayer}]'s turn
           </Typography>
-        <ImageGraph />
+        <ImageGraph gamestatus={this.state}/>
         <MicButton words={this.state.opcoes} gamestatus={this.state} geraWord={this.geraWords} addTry={this.addTry.bind(this)} />
       </div>
     );
