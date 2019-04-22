@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ImageGraph from "./images/ImageGraph"
 import MicButton from "./MicButton";
 import Typography from "@material-ui/core/Typography";
+import Axios from "axios";
 
 const DADOS = {
   room: "abc001",
@@ -10,19 +11,37 @@ const DADOS = {
   tries: []
 };
 
+
 class PlayScreen extends Component {
   classes;
   constructor(props) {
     super(props);
     this.state = DADOS;
     this.classes = props;
+    this.gamestatus = Axios.create({
+      baseURL: process.env.REACT_APP_GAME_SERVER_BASE_URL,
+      timeout: 1000,
+      //headers: { "x-apikey": process.env.REACT_APP_GAME_SERVER_API_KEY }
+    });
   }
   addTry(newTry) {
     let newState = Object.assign({}, this.state, { tries: this.state.tries.concat(newTry) });
     this.setState(newState);
   }
   componentDidMount() {
-    this.setState(DADOS);
+    
+    this.gamestatus.get("abcdef").then(res => {
+      console.log("then:", res);
+      this.setState(res.data);
+
+    }
+    ).catch(err => {
+      console.log("err:", err);
+    })
+  }
+
+  componentWillMount() {
+
   }
 
   geraWords = () => {
@@ -37,7 +56,7 @@ class PlayScreen extends Component {
           {this.state.player}'s turn
           </Typography>
         <ImageGraph />
-        <MicButton words={this.state.words} geraWord={this.geraWords} addTry={this.addTry.bind(this)} />
+        <MicButton words={this.state.words} gamestatus={this.state} geraWord={this.geraWords} addTry={this.addTry.bind(this)} />
       </div>
     );
   }
