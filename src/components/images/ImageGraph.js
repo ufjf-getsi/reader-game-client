@@ -11,20 +11,30 @@ class ImageGraph extends Component{
   }
   
   render(){
-    const SS = 30;
+    const SS = 60;
     console.log(this.props.gamestatus.nodes);
     this.nodes = JSON.parse(this.props.gamestatus.nodes);
-    console.log(this.nodes);
     let eNodes = this.nodes.map(node=>{
+      let players = this.props.gamestatus.jogadores.filter(player=>player.position===node.node);
+      let itens = this.props.gamestatus.itens.filter(item=>item.node===node.node);
+      console.log(players,itens);
+
       let eItems = 
-        node.items.map((item,k) => {
-          return (<div key={item+k} className="item">{item}</div>)
+      itens.map((item,k) => {
+        item.data2 = JSON.parse(item.data);
+        return (<div key={item.data2.name + k} className={"item " + item.data2.type + " " + item.data2.name}></div>)
+        })
+
+      let ePlayers = 
+      players.map((pl,k) => {
+        return (<div key={pl.name+k} className={"player team"+pl.team}>{pl.name}</div>)
         })
 
       return (
       <div key={node.node} className="node" style={{"top": (node.y*SS), "left": (node.x*SS)}}>
         <div className="nodeId">{node.node}</div>
       {eItems}
+      {ePlayers}
         </div>)
     });
 

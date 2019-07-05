@@ -3,25 +3,81 @@
     width: 300px;
     height: 300px;
     position: relative;
-    border: 1px solid lightgray;
+    border: 1px solid blue;
     overflow: hidden;
+    background-color: black;
 }
 
 .map .node{
-    border: 2px solid lightblue;
-    border-radius: 30%;
-    width: 20px;
-    height: 20px;
+    border: 1px solid gray;
+    border-radius: 10%;
+    width: 54px;
+    height: 54px;
 
     font-size: 0.5em;
+    text-align: left;
     position: absolute;
+    overflow: hidden;
+    padding: 2px;
 }
 
-.node .item{
-    color: red;
+.nodeId{
+    text-align: left;
+    padding: 0.5em 1em;
+    position: absolute; 
+}
+
+.node .player::before{
+    content: "🚀";
+}
+.node .player.team1 {
+    color: rgb(255, 0, 255);
+}
+.node .player.team2 {
+    color: yellow;
 }
 
 .node .nodeId{
     font-size: 0.8em;
-    color: darkgreen;
+    color: white;
+}
+
+.node .item {
+    background-color: white;
+    border-radius: 40%;
+    padding: 0.2em;
+    width: 2.4em;
+    color: black;
+    margin: auto;
+    text-align: center;
+}
+
+.node .item.noidea{
+    display: none;
+}
+.node .item.noidea::before{
+    content: "?";
+}
+.node .item.noidea::after{
+    content: "?";
+}
+
+.node .item.good::before{
+    content: "⛏";
+}
+.node .item.demand::before{
+    content: "💰";
+}
+
+.node .item.ruby::after{
+    content: "💎";
+    color: red;
+}
+.node .item.saphire::after{
+    content: "💎";
+    color: blue;
+}
+.node .item.emerald::after{
+    content: "💎";
+    color: greenyellow;
 }

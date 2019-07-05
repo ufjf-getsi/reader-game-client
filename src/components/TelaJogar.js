@@ -10,7 +10,8 @@ const DADOS = {
   player: "Player 1",
   words: { list: ["Palitó", "Pálido", "Palito", "Palíndromo"] },
   tries: [],
-  nodes:"[]"
+  nodes:"[]",
+  items:[]
 };
 
 
@@ -35,6 +36,7 @@ class PlayScreen extends Component {
     
     this.gamestatus.get(this.room ).then(res => {
       this.setState(res.data);
+      console.log(res.data);
 
     }
     ).catch(err => {
