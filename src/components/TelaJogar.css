@@ -1,0 +1,27 @@
+#stash{
+    font-size: 1.2em;
+}
+#stash div{
+    display: inline-block;
+}
+#stash dt, #stash dd{
+    display: inline-block;
+    width: 2em;
+    height: 1em;
+    line-height: 2em;
+    text-align: right;
+    margin: 0;
+    padding: 0.2em;
+}
+#stash dd {
+    text-align: left;
+}
+.ruby{
+    color: red;
+}
+.emerald{
+    color: green;
+}
+.saphire{
+    color: blue;
+}

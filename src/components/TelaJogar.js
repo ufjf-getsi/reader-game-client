@@ -3,15 +3,17 @@ import ImageGraph from "./images/ImageGraph"
 import MicButton from "./MicButton";
 import Typography from "@material-ui/core/Typography";
 import Axios from "axios";
-
+import "./TelaJogar.css";
 const DADOS = {
-  opcoes:{},
+  opcoes: {},
   room: "abc001",
   player: "Player 1",
   words: { list: ["Palitó", "Pálido", "Palito", "Palíndromo"] },
   tries: [],
-  nodes:"[]",
-  items:[]
+  nodes: "[]",
+  items: [],
+  jogadores:[{nome:"..."}],
+  currentPlayer:0
 };
 
 
@@ -33,11 +35,9 @@ class PlayScreen extends Component {
     this.setState(newState);
   }
   componentDidMount() {
-    
-    this.gamestatus.get(this.room ).then(res => {
-      this.setState(res.data);
-      console.log(res.data);
 
+    this.gamestatus.get(this.room).then(res => {
+      this.setState(res.data);
     }
     ).catch(err => {
       console.log("err:", err);
@@ -54,13 +54,29 @@ class PlayScreen extends Component {
   }
 
   render() {
+
+    let jogador = this.state.jogadores[this.state.currentPlayer];
     
     return (
       <div className={this.classes.root}>
         <Typography variant="h6" color="inherit">
-          [Player {this.state.currentPlayer}]'s turn
-          </Typography>
-        <ImageGraph gamestatus={this.state}/>
+          {jogador.name}
+        </Typography>
+        <dl id="stash">
+          <div className="ruby">
+            <dt>💎</dt>
+            <dd>0</dd>
+          </div>
+          <div className="emerald">
+            <dt>💎</dt>
+            <dd>0</dd>
+          </div>
+          <div className="saphire">
+            <dt>💎</dt>
+            <dd>0</dd>
+          </div>
+        </dl>
+        <ImageGraph gamestatus={this.state} />
         <MicButton words={this.state.opcoes} gamestatus={this.state} geraWord={this.geraWords} addTry={this.addTry.bind(this)} />
       </div>
     );

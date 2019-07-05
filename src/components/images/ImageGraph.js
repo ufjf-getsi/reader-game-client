@@ -12,12 +12,10 @@ class ImageGraph extends Component{
   
   render(){
     const SS = 60;
-    console.log(this.props.gamestatus.nodes);
     this.nodes = JSON.parse(this.props.gamestatus.nodes);
     let eNodes = this.nodes.map(node=>{
       let players = this.props.gamestatus.jogadores.filter(player=>player.position===node.node);
       let itens = this.props.gamestatus.itens.filter(item=>item.node===node.node);
-      console.log(players,itens);
 
       let eItems = 
       itens.map((item,k) => {
