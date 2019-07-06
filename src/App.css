@@ -1,7 +1,7 @@
 .App, #root {
   text-align: center;
-  width: 300px;
-  margin: auto;
+  width: 100%;
+  margin: 8px;
 }
 
 .App-logo {
@@ -32,4 +32,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+button.QuestionButtons-buttonSize-37 {
+    margin: 2px 0;
+    width: 100%;
 }

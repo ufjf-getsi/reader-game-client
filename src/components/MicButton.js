@@ -65,7 +65,7 @@ export class MicButton extends Component {
   }
 
   onStop(recordedBlob) {
-    const newState = { record: this.state.record, lastWord: this.state.lastWord, lastBlob: recordedBlob};
+    const newState = { record: this.state.record, lastWord: this.state.lastWord, lastBlob: recordedBlob };
     this.setState(newState);
     const instance = axios.create({
       httpsAgent: agent
@@ -75,8 +75,10 @@ export class MicButton extends Component {
       .post(
         process.env.REACT_APP_GAME_SERVER_BASE_URL + process.env.REACT_APP_GAME_SERVER_AUDIO_UPLOAD_URL,
         recordedBlob.blob,
-        { headers: { "content-type": "multipart/form-data" },
-          httpsAgent: agent }
+        {
+          headers: { "content-type": "multipart/form-data" },
+          httpsAgent: agent
+        }
       )
       .then((response, error) => {
         console.log("PLOG E: ", response, error);
@@ -85,15 +87,15 @@ export class MicButton extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: "100%", position:"absolute", bottom:"8px"}}>
         <ReactMic
           record={this.state.record}
           className="sound-wave"
           width="300"
           onStop={this.onStop.bind(this)}
           onData={this.onData}
-          strokeColor="#000000"
-          backgroundColor="#BAD8EB"
+          strokeColor="#FFFF00"
+          backgroundColor="rgba(0,0,0,0.3)"
         />
         <QuestionButtons
           words={this.props.words}
@@ -101,19 +103,21 @@ export class MicButton extends Component {
           onStopRecording={this.stopRecording}
         />
 
-        <a
-          href={
-            this.state.lastBlob
+        <div style={{ display: "none" }}>
+          <a
+            href={
+              this.state.lastBlob
+                ? this.state.lastBlob.blobURL
+                : ""
+            }
+            download="teste.webm"
+          >
+            Download:{" "}
+            {this.state.lastBlob
               ? this.state.lastBlob.blobURL
-              : ""
-          }
-          download="teste.webm"
-        >
-          Download:{" "}
-          {this.state.lastBlob
-            ? this.state.lastBlob.blobURL
-            : ""}
-        </a>
+              : ""}
+          </a>
+        </div>
       </div>
     );
   }

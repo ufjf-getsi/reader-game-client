@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+const icons = { "U": "⇧", "R": "⇨", "L": "⇦", "D": "⇩"};
 
 const styles = theme => ({
   buttonSize: {
     margin: theme.spacing.unit,
-    width: 290
+    width: "100%",
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
@@ -18,6 +19,7 @@ class QuestionButtons extends Component {
     let wordDivs = [];
     wordDivs = [];
     const {classes} = this.props;
+    
     for(const word in this.props.words) {
       const k = this.props.words[word];
       wordDivs.push (
@@ -34,7 +36,7 @@ class QuestionButtons extends Component {
             onMouseLeave={()=>{this.props.onStopRecording(word)}}
             onTouchEnd={()=>{this.props.onStopRecording(word)}}
           >
-            {word} : {k}
+            {icons[word]} : {k}
           </Button>
         </div>
       );

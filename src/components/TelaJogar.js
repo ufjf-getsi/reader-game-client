@@ -61,7 +61,7 @@ class PlayScreen extends Component {
     let score = JSON.parse(this.state.scoreList);
     let team1p = ((score["1"]+1) / (score["1"] + score["2"]+2)).toFixed(2);
     let team2p = ((1 - team1p)).toFixed(2);
-    console.log(team1p, team2p);
+    console.log(this.state.opcoes);
     
 
     return (
