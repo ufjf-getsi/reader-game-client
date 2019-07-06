@@ -64,15 +64,15 @@ class PlayScreen extends Component {
         </Typography>
         <dl id="stash">
           <div className="ruby">
-            <dt>💎</dt>
+            <dt role="img">💎</dt>
             <dd>0</dd>
           </div>
           <div className="emerald">
-            <dt>💎</dt>
+            <dt role="img">💎</dt>
             <dd>0</dd>
           </div>
           <div className="saphire">
-            <dt>💎</dt>
+            <dt role="img">💎</dt>
             <dd>0</dd>
           </div>
         </dl>
