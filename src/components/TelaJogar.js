@@ -12,8 +12,9 @@ const DADOS = {
   tries: [],
   nodes: "[]",
   items: [],
-  jogadores:[{nome:"..."}],
-  currentPlayer:0
+  jogadores: [{ nome: "..." }],
+  currentPlayer: 0,
+  scoreList: "{\"1\":0,\"2\":0}"
 };
 
 
@@ -56,12 +57,20 @@ class PlayScreen extends Component {
   render() {
 
     let jogador = this.state.jogadores[this.state.currentPlayer];
+
+    let score = JSON.parse(this.state.scoreList);
+    let team1p = ((score["1"]+1) / (score["1"] + score["2"]+2)).toFixed(2);
+    let team2p = ((1 - team1p)).toFixed(2);
+    console.log(team1p, team2p);
     
+
     return (
       <div className={this.classes.root}>
-        <Typography variant="h6" color="inherit">
-          {jogador.name}
-        </Typography>
+        <div className="progressBar">
+          <div className="progress" style={{ width: (team1p * 100) + "%" }}>{(team1p * 100)}%</div>
+          <div className="progress" style={{ width: (team2p * 100) + "%" }}>{(team2p * 100)}%</div>
+        </div>
+        <Typography variant="h6" color="inherit">{jogador.name}</Typography>
         <dl id="stash">
           <div className="ruby">
             <dt role="img">💎</dt>
