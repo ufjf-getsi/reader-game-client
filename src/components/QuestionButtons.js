@@ -7,7 +7,7 @@ const icons = { "U": "⇧", "R": "⇨", "L": "⇦", "D": "⇩"};
 const styles = theme => ({
   buttonSize: {
     margin: theme.spacing.unit,
-    width: "100%",
+    width: "98%",
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,

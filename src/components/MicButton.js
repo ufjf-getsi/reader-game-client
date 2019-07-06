@@ -3,6 +3,10 @@ import { ReactMic } from 'react-mic';
 import QuestionButtons from './QuestionButtons';
 import axios from 'axios';
 import https from 'https'
+import Drawer from '@material-ui/core/Drawer';
+import "./MicButton.css";
+import Fab from '@material-ui/core/Fab';
+import MicIcon from '@material-ui/icons/Mic';
 
 const agent = new https.Agent({
   rejectUnauthorized: false,
@@ -15,7 +19,8 @@ export class MicButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      record: false
+      record: false,
+      open: false
     }
 
   }
@@ -25,15 +30,17 @@ export class MicButton extends Component {
 
     this.setState({
       record: true,
+      open: this.state.open,
       lastWord: word,
       lastBlob: null
     });
   }
-
+  
   stopRecording = (word) => {
     console.log("STOP " + word);
     this.setState({
       record: false,
+      open: false,
       lastWord: this.state.lastWord
     });
     this.props.addTry({
@@ -85,24 +92,24 @@ export class MicButton extends Component {
       });
   }
 
+  toggleDrawer = () => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    console.log("bling");
+    
+    this.setState({ ...this.state, "open": !this.state.open });
+  };
+
+
   render() {
     return (
-      <div style={{width: "100%", position:"absolute", bottom:"8px"}}>
-        <ReactMic
-          record={this.state.record}
-          className="sound-wave"
-          width="300"
-          onStop={this.onStop.bind(this)}
-          onData={this.onData}
-          strokeColor="#FFFF00"
-          backgroundColor="rgba(0,0,0,0.3)"
-        />
-        <QuestionButtons
-          words={this.props.words}
-          onStartRecording={this.startRecording}
-          onStopRecording={this.stopRecording}
-        />
-
+      <div style={{ width: "98%", position: "absolute", bottom: "8px", margin:"auto" }}
+        onClick={this.toggleDrawer()}
+        >
+        <Fab color="primary" aria-label="Rec" onClick={this.toggleDrawer()} >
+          <MicIcon />
+        </Fab>
         <div style={{ display: "none" }}>
           <a
             href={
@@ -118,6 +125,23 @@ export class MicButton extends Component {
               : ""}
           </a>
         </div>
+        <Drawer anchor="bottom" open={this.state.open} onClose={this.toggleDrawer()} className="drawer" >
+          <ReactMic
+            record={this.state.record}
+            className="sound-wave"
+            width="300"
+            onStop={this.onStop.bind(this)}
+            onData={this.onData}
+            strokeColor="plum"
+            backgroundColor="rgba(0,0,0,0.3)"
+          />
+
+          <QuestionButtons
+            words={this.props.words}
+            onStartRecording={this.startRecording}
+            onStopRecording={this.stopRecording}
+          />
+        </Drawer>
       </div>
     );
   }

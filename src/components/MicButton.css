@@ -1,0 +1,12 @@
+canvas {
+    border: 4px outset yellow;
+    border-radius: 50%;
+    margin: auto;
+    width: 98%;
+}
+.drawer>div:nth-child(2) {
+    background-color: transparent;
+    width: 98%;
+    padding: 0;
+    margin: auto;
+}
